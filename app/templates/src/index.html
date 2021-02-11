@@ -1,0 +1,9 @@
+{% extends "src/nunjucks/base.njk" %}
+
+{% block head %}
+	{{ meta | metadata('description', 'Base Template') }}
+{% endblock %}
+
+{% block body %}
+	<h1>Posts</h1>
+{% endblock %}

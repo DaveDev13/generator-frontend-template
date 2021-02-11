@@ -1,0 +1,31 @@
+{
+	"name": "generator-frontend-template",
+	"version": "0.1.0-0",
+	"description": "Project template generator",
+	"license": "MIT",
+	"repository": "nunjucks-team/generator-frontend-template",
+	"author": "Denis Kobelev | DaveDev <deniskobeleff@yandex.ru>",
+	"main": "app/index.js",
+	"keywords": [
+		"autoprefixer",
+		"babel",
+		"browsersync",
+		"eslint",
+		"javascript",
+		"gulp",
+		"png-sprites",
+		"nunjucks",
+		"htmlhint",
+		"scss",
+		"stylelint",
+		"svg-sprites",
+		"template",
+		"yeoman-generator"
+	],
+	"files": [
+		"app"
+	],
+	"dependencies": {
+		"yeoman-generator": "^3.1.1"
+	}
+}

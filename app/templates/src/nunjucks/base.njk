@@ -1,0 +1,134 @@
+{% import "./partials/mixins.njk" as mixins %}
+
+{% set baseDir = './' %}
+{% set meta = {
+	appleMobileWebAppCapable: null,
+	appleMobileWebAppStatusBarStyle: null,
+	appleMobileWebAppTitle: null,
+	appleTouchFullscreen: null,
+	applicationName: null,
+	charset: 'utf-8',
+	description: description,
+	keywords: [],
+	msapplicationTileColor: null,
+	msapplicationTileImage: null,
+	msapplicationNotification: null,
+	msapplicationSquare70x70logo: null,
+	msapplicationSquare150x150logo: null,
+	msapplicationSquare310x310logo: null,
+	msapplicationWide310x150logo: null,
+	msapplicationConfig: null,
+	ogDescription: description,
+	ogImage: image,
+	ogImageType: null,
+	ogImageWidth: null,
+	ogImageHeight: null,
+	ogImageAlt: null,
+	ogLocale: 'ru_RU',
+	ogTitle: title,
+	ogType: 'website',
+	ogUrl: null,
+	themeColor: null,
+	twitterCard: 'summary_large_image',
+	twitterSite: null,
+	twitterCreator: null,
+	twitterTitle: title,
+	twitterDescription: description,
+	twitterImage: image,
+	viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
+	XUACompatible: 'IE=edge'
+} | default %}
+{% set link = {
+	appleTouchIcon: null,
+	appleTouchIcon40x40: null,
+	appleTouchIcon57x57: null,
+	appleTouchIcon58x58: null,
+	appleTouchIcon60x60: null,
+	appleTouchIcon72x72: null,
+	appleTouchIcon76x76: null,
+	appleTouchIcon80x80: null,
+	appleTouchIcon87x87: null,
+	appleTouchIcon114x114: null,
+	appleTouchIcon120x120: null,
+	appleTouchIcon144x144: null,
+	appleTouchIcon152x152: null,
+	appleTouchIcon167x167: null,
+	appleTouchIcon180x180: null,
+	appleTouchIcon1024x1024: null,
+	appleTouchIconPrecomposed: null,
+	appleTouchIconPrecomposed40x40: null,
+	appleTouchIconPrecomposed57x57: null,
+	appleTouchIconPrecomposed58x58: null,
+	appleTouchIconPrecomposed60x60: null,
+	appleTouchIconPrecomposed72x72: null,
+	appleTouchIconPrecomposed76x76: null,
+	appleTouchIconPrecomposed80x80: null,
+	appleTouchIconPrecomposed87x87: null,
+	appleTouchIconPrecomposed114x114: null,
+	appleTouchIconPrecomposed120x120: null,
+	appleTouchIconPrecomposed144x144: null,
+	appleTouchIconPrecomposed152x152: null,
+	appleTouchIconPrecomposed167x167: null,
+	appleTouchIconPrecomposed180x180: null,
+	appleTouchIconPrecomposed1024x1024: null,
+	icon: null,
+	icon16x16: null,
+	icon32x32: null,
+	icon96x96: null,
+	icon128x128: null,
+	icon192x192: null,
+	icon194x194: null,
+	icon196x196: null,
+	imageSrc: image,
+	manifest: null,
+	maskIcon: {
+		href: null,
+		color: null
+	}
+} | default %}
+
+<!doctype html>
+<html class="{{htmlClass}}" lang="ru" {{-htmlAttrs}}>
+	<head>
+		{%- block head %}{% endblock -%}
+
+		<title>
+			{%- if title -%}
+				{{ title }}
+			{%- else -%}
+				Template
+			{%- endif -%}
+		</title>
+
+		<meta name="format-detection" content="telephone=no"/>
+
+		{%- include "./partials/meta.njk" %}
+		{%- include "./partials/links.njk" %}
+
+		<link rel="stylesheet" href="{{baseDir + 'css/main.css?v=' + now}}"/>
+
+		{%- block styles %}{% endblock -%}
+
+		{%- if googleAnalyticsId | default(false) %}
+			<link rel="dns-prefetch" href="https://www.google-analytics.com">
+			<link rel="preconnect" href="https://www.google-analytics.com/" crossorigin>
+		{%- endif %}
+	</head>
+
+	<body class="{{bodyClass}}" {{-bodyAttrs}}>
+
+		<!-- BEGIN content -->
+		{%- block body %}{% endblock -%}
+		<!-- END content -->
+
+		<!-- BEGIN scripts -->
+		<script src="{{baseDir + 'js/vendor.js?v=' + now}}"></script>
+		<script src="{{baseDir + 'js/main.js?v=' + now}}"></script>
+		{%- block js %}{% endblock -%}
+		<!-- END scripts -->
+		{%- include "./partials/analytics/yandex.njk" -%}
+		{%- include "./partials/analytics/google.njk" -%}
+
+	</body>
+
+</html>

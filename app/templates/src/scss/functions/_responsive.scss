@@ -1,0 +1,19 @@
+@function vw($value, $base: $laptop) {
+	@return $value / $base * 100vw;
+}
+
+@function px($value, $base: $laptop) {
+	@return $value * ($desktop-xl * 1px) / $base;
+}
+
+@function vh($value, $base: $desktop-vh) {
+	@return $value / $base * 100vh;
+}
+
+@function vmin($value, $base: $mobile) {
+	@return $value / $base * 100vmin;
+}
+
+@function vtmin($value, $base: $tablet) {
+	@return $value / $base * 100vmin;
+}

@@ -1,0 +1,102 @@
+{%- if meta.charset !== null %}
+	<meta charset="{{meta.charset}}" />
+{%- endif -%}
+{%- if meta.XUACompatible !== null %}
+	<meta http-equiv="X-UA-Compatible" content="{{meta.XUACompatible}}" />
+{%- endif -%}
+{%- if meta.viewport !== null %}
+	<meta name="viewport" content="{{meta.viewport}}" />
+{%- endif -%}
+{%- if meta.description !== null %}
+	<meta name="description" content="{{meta.description}}" />
+{%- endif -%}
+{%- if meta.keywords !== null %}
+	<meta name="keywords" content="{{meta.keywords}}" />
+{%- endif -%}
+{%- if meta.ogType !== null and (meta.ogUrl or meta.ogTitle or meta. ogDescription or meta.ogImage) %}
+	<meta property="og:type" content="{{meta.ogType}}" />
+{%- endif -%}
+{%- if meta.ogUrl !== null %}
+	<meta property="og:url" content="{{meta.ogUrl}}" />
+{%- endif -%}
+{%- if meta.ogLocale !== null and (meta.ogUrl or meta.ogTitle or meta.ogDescription or meta.ogImage) %}
+	<meta property="og:locale" content="{{meta.ogLocale}}" />
+{%- endif -%}
+{%- if meta.ogTitle !== null %}
+	<meta property="og:title" content="{{meta.ogTitle}}" />
+{%- endif -%}
+{%- if meta.ogDescription !== null %}
+	<meta property="og:description" content="{{meta.ogDescription}}" />
+{%- endif -%}
+{%- if meta.ogImage !== null %}
+	<meta property="og:image" content="{{meta.ogImage}}" />
+{%- endif -%}
+{%- if meta.ogImageType !== null %}
+	<meta property="og:image:type" content="{{meta.ogImageType}}" />
+{%- endif -%}
+{%- if meta.ogImageWidth !== null %}
+	<meta property="og:image:width" content="{{meta.ogImageWidth}}" />
+{%- endif -%}
+{%- if meta.ogImageHeight !== null %}
+	<meta property="og:image:height" content="{{meta.ogImageHeight}}" />
+{%- endif -%}
+{%- if meta.ogImageAlt !== null %}
+	<meta property="og:image:alt" content="{{meta.ogImageAlt}}" />
+{%- endif -%}
+{%- if meta.twitterCard !== null and (meta.twitterSite or meta.twitterCreator or meta.twitterTitle or meta.twitterDescription or meta.twitterImage) %}
+	<meta name="twitter:card" content="{{meta.twitterCard}}" />
+{%- endif -%}
+{%- if meta.twitterSite !== null %}
+	<meta name="twitter:site" content="{{meta.twitterSite}}" />
+{%- endif -%}
+{%- if meta.twitterCreator !== null %}
+	<meta name="twitter:creator" content="{{meta.twitterCreator}}" />
+{%- endif -%}
+{%- if meta.twitterTitle !== null %}
+	<meta name="twitter:title" content="{{meta.twitterTitle}}" />
+{%- endif -%}
+{%- if meta.twitterDescription !== null %}
+	<meta name="twitter:description" content="{{meta.twitterDescription}}" />
+{%- endif -%}
+{%- if meta.twitterImage !== null %}
+	<meta name="twitter:image" content="{{meta.twitterImage}}" />
+{%- endif -%}
+{%- if meta.appleMobileWebAppCapable !== null %}
+	<meta name="apple-mobile-web-app-capable" content="{{meta.appleMobileWebAppCapable}}" />
+{%- endif -%}
+{%- if meta.appleMobileWebAppStatusBarStyle !== null %}
+	<meta name="apple-mobile-web-app-status-bar-style" content="{{meta.appleMobileWebAppStatusBarStyle}}" />
+{%- endif -%}
+{%- if meta.appleMobileWebAppTitle !== null %}
+	<meta name="apple-mobile-web-app-title" content="{{meta.appleMobileWebAppTitle}}" />
+{%- endif -%}
+{%- if meta.applicationName !== null %}
+	<meta name="application-name" content="{{meta.applicationName}}" />
+{%- endif -%}
+{%- if meta.msapplicationTileColor !== null %}
+	<meta name="msapplication-TileColor" content="{{meta.msapplicationTileColor}}" />
+{%- endif -%}
+{%- if meta.msapplicationTileImage !== null %}
+	<meta name="msapplication-TileImage" content="{{meta.msapplicationTileImage}}" />
+{%- endif -%}
+{%- if meta.msapplicationSquare70x70logo !== null %}
+	<meta name="msapplication-square70x70logo" content="{{meta.msapplicationSquare70x70logo}}" />
+{%- endif -%}
+{%- if meta.msapplicationSquare150x150logo !== null %}
+	<meta name="msapplication-square150x150logo" content="{{meta.msapplicationSquare150x150logo}}" />
+{%- endif -%}
+{%- if meta.msapplicationWide310x150logo !== null %}
+	<meta name="msapplication-wide310x150logo" content="{{meta.msapplicationWide310x150logo}}" />
+{%- endif -%}
+{%- if meta.msapplicationSquare310x310logo !== null %}
+	<meta name="msapplication-square310x310logo" content="{{meta.msapplicationSquare310x310logo}}" />
+{%- endif -%}
+{%- if meta.msapplicationNotification !== null %}
+	<meta name="msapplication-notification" content="{{meta.msapplicationNotification}}" />
+{%- endif -%}
+{%- if meta.msapplicationConfig !== null %}
+	<meta name="msapplication-config" content="{{meta.msapplicationConfig}}" />
+{%- endif -%}
+{%- if meta.themeColor !== null %}
+	<meta name="theme-color" content="{{meta.themeColor}}" />
+{%- endif -%}

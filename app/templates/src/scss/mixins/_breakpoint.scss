@@ -1,0 +1,37 @@
+@mixin desktop {
+	@media (min-width: ($desktop * 1px)) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	// change the values for the situation
+	@media (min-width: ($desktop * 1px)) and (max-width: (($laptop - 1) * 1px)) {
+		@content;
+	}
+}
+
+@mixin desktop-xl {
+	// change the values for the situation
+	@media (min-width: ($desktop-xl * 1px)) {
+		@content;
+	}
+}
+
+@mixin laptop-h {
+	@media (min-width: ($desktop * 1px)) and (max-height: (($desktop-vh - 1) * 1px)) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: ($tablet * 1px)) and (max-width: (($desktop - 1) * 1px)) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: (($tablet - 1) * 1px)) {
+		@content;
+	}
+}
