@@ -3,7 +3,7 @@
 	"version": "0.1.0-0",
 	"description": "Project template generator",
 	"license": "MIT",
-	"repository": "nunjucks-team/generator-frontend-template",
+	"repository": "DaveDev13/generator-frontend-template",
 	"author": "Denis Kobelev | DaveDev <deniskobeleff@yandex.ru>",
 	"main": "app/index.js",
 	"keywords": [
