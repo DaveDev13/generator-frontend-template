@@ -181,7 +181,7 @@ const manageEnvironment = (environment) => {
 	});
 };
 
-gulp.task('nunjucks', () => {
+gulp.task('html', () => {
 	let nunjucks = gulp.src([
 		'src/[^_]*.+(html|nunjucks|njk)',
 		'src/pages/**/[^_]*.+(html|nunjucks|njk)',
@@ -393,7 +393,7 @@ gulp.task('watch', () => {
 		'src/*.+(html|nunjucks|njk)',
 		'src/nunjucks/**/[^_]*.+(html|nunjucks|njk|json)',
 		'src/pages/**/*.+(html|nunjucks|njk|json)',
-	], gulp.series('nunjucks'));
+	], gulp.series('html'));
 
 	gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
 
@@ -488,7 +488,7 @@ gulp.task('lint', gulp.series(
 
 gulp.task('build', gulp.series(
 	'copy',
-	'nunjucks',
+	'html',
 	'share',
 	gulp.parallel(
 		'images',

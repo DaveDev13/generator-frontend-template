@@ -1,7 +1,7 @@
 # Содержание
 
-Содержит Gulp, nunjucks, Scss, vanilla JavaScript, svg/png sprites
+Содержит Gulp, Nunjucks, Scss, vanilla JavaScript, svg/png sprites
 
-# Документация
+# Создание и поддержка
 
-Документация к данной сборке пока не доступна
+* [DaveDev](https://github.com/DaveDev13)
