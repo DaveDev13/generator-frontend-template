@@ -193,15 +193,6 @@ gulp.task('html', () => {
 		.pipe($.nunjucksRender({
 			manageEnv: manageEnvironment,
 			data,
-			noCache: true,
-			tags: {
-				blockStart: '<%',
-				blockEnd: '%>',
-				variableStart: '<$',
-				variableEnd: '$>',
-				commentStart: '<#',
-				commentEnd: '#>',
-			},
 		}))
 		.pipe($.htmlhint('.htmlhintrc.json'))
 		.pipe($.htmlhint.reporter());

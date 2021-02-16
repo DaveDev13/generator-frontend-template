@@ -14,6 +14,22 @@ const cancelFunc = (timeout) => () => {
 	clearTimeout(timeout);
 };
 
+vars.loadImage = (src) => {
+	return new Promise((resolve, reject) => {
+		const $img = new Image();
+
+		$img.onload = () => {
+			resolve($img);
+		};
+
+		$img.onerror = () => {
+			reject();
+		};
+
+		$img.src = src;
+	});
+}
+
 vars.debounce = (fn, wait, ...args) => {
 	let d = debounced.find(({funcString}) => funcString === fn.toString());
 
