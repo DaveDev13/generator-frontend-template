@@ -10,8 +10,15 @@
 	}
 }
 
-.for-mobile {
-	@include desktop {
+.for-tablet {
+	@include tablet {
+		// stylelint-disable-next-line declaration-no-important
+		display: none !important;
+	}
+}
+
+.for-devices {
+	@include devices {
 		// stylelint-disable-next-line declaration-no-important
 		display: none !important;
 	}

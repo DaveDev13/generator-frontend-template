@@ -9,26 +9,59 @@ vars.isMobile = () => innerWidth <= 1024;
 vars.isIE = () => vars.$html.classList.contains('is-browser-ie');
 vars.winWidth = window.innerWidth;
 
+vars.getIndex = (node) => {
+	let children = node.parentNode.childNodes;
+	let num = 0;
+	for (let i = 0; i < children.length; i++) {
+		if (children[i] === node) {
+			return num;
+		}
+		if (children[i].nodeType === 1) {
+			num++;
+		}
+	}
+
+	return -1;
+};
+
+vars.setCookie = (name, value, days) => {
+	let expires = '';
+
+	if (days) {
+		let date = new Date();
+		date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+		expires = `; expires=${date.toUTCString()}`;
+	}
+
+	document.cookie = `${name}=${value || ''}${expires}; path=/`;
+};
+
+vars.getCookie = (name) => {
+	let nameEQ = `${name}=`;
+	let ca = document.cookie.split(';');
+
+	for (let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+
+		while (c.charAt(0) === ' ') {
+			c = c.substring(1, c.length);
+		}
+
+		if (c.indexOf(nameEQ) === 0) {
+			return c.substring(nameEQ.length, c.length);
+		}
+	}
+
+	return null;
+};
+vars.eraseCookie = (name) => {
+	document.cookie = `${name}=; Max-Age=-99999999;`;
+};
+
 const debounced = [];
 const cancelFunc = (timeout) => () => {
 	clearTimeout(timeout);
 };
-
-vars.loadImage = (src) => {
-	return new Promise((resolve, reject) => {
-		const $img = new Image();
-
-		$img.onload = () => {
-			resolve($img);
-		};
-
-		$img.onerror = () => {
-			reject();
-		};
-
-		$img.src = src;
-	});
-}
 
 vars.debounce = (fn, wait, ...args) => {
 	let d = debounced.find(({funcString}) => funcString === fn.toString());
@@ -113,23 +146,31 @@ vars.scrollTo = (scrollTo, time = 500, offset = 0) => {
 	}, time + 100);
 };
 
-let scrollDiv;
-
 vars.getScrollbarWidth = () => {
-	const width = window.innerWidth - vars.$html.clientWidth;
+	let scrollbarWidth;
 
-	if (width) {
-		return width;
+	if (document.documentElement.offsetHeight <= document.documentElement.clientHeight) {
+		scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+	} else {
+		// Creating invisible container
+		const outer = document.createElement('div');
+		outer.style.visibility = 'hidden';
+		outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+		outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+		document.body.appendChild(outer);
+
+		// Creating inner element and placing it in the container
+		const inner = document.createElement('div');
+		outer.appendChild(inner);
+
+		// Calculating difference between container's full width and the child width
+		scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
+
+		// Removing temporary elements from the DOM
+		outer.parentNode.removeChild(outer);
 	}
 
-	// Document doesn't have a scrollbar, possibly because there is not enough content so browser doesn't show it
-	if (!scrollDiv) {
-		scrollDiv = document.createElement('div');
-		scrollDiv.style.cssText = 'width:100px;height:100px;overflow:scroll !important;position:absolute;top:-9999px';
-		document.body.appendChild(scrollDiv);
-	}
-
-	return scrollDiv.offsetWidth - scrollDiv.clientWidth;
+	return scrollbarWidth;
 };
 
 vars.supportsPassive = false;

@@ -35,3 +35,9 @@
 		@content;
 	}
 }
+
+@mixin devices {
+	@media (max-width: (($desktop - 1) * 1px)) {
+		@content;
+	}
+}
